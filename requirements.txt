@@ -1,0 +1,10 @@
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-core>=0.2.0
+langchain-openai>=0.1.0
+langsmith>=0.1.0
+streamlit>=1.30.0
+python-dotenv
+openai>=1.0.0
+pypdf
+tiktoken
