@@ -77,7 +77,7 @@ Follow these steps to set up and run the project locally.
 * Python 3.8+
 * An OpenAI API Key
 
-### 1. Clone the Repository (or ensure your local copy is complete)
+### 1. Clone the Repository
 
 ```bash
 git clone [https://github.com/pooja-k-swamy/clinical-protocol-review.git](https://github.com/pooja-k-swamy/clinical-protocol-review.git)
