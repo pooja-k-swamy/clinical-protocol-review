@@ -41,32 +41,6 @@ The system comprises the following key modules:
     * The user-friendly interface for interacting with the system.
     * Allows users to generate new protocol drafts, upload existing protocols, trigger the multi-agent review, and view the consolidated feedback, risk assessment, and score.
 
-## Project Structure
-clinical-protocol-ai-review/ \
-├── README.md                
-├── requirements.txt         
-├── streamlit_app.py          
-├── agents/                    \
-│   ├── protocol_generator.py \
-│   ├── pi_agent.py           \
-│   ├── site_physician_agent.py \
-│   └── health_authority_agent.py \
-├── mcp_interface/            
-│   ├── protocol_server.py   
-│   └── review_tools.py     
-├── templates/                
-│   ├── ich_templates/        
-│   └── fda_templates/        
-├── utils/                    
-│   ├── document_processor.py \
-│   ├── risk_assessor.py     
-│   └── scoring_engine.py     
-├── data/                     
-│   └── sample_protocols/     
-├── tests/                    #to be added\
-├── .env                      
-└── .gitignore                
-
 
 ## Setup and Installation
 
@@ -82,3 +56,38 @@ Follow these steps to set up and run the project locally.
 ```bash
 git clone [https://github.com/pooja-k-swamy/clinical-protocol-review.git](https://github.com/pooja-k-swamy/clinical-protocol-review.git)
 cd clinical-protocol-review
+```
+
+### 2. Create and Activate a Virtual Environment
+Use a virtual environment to manage dependencies
+
+```bash
+python -m venv venv
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+Create a .env file in the root directory of your project and add your OpenAI API key:
+```python
+OPENAI_API_KEY="OPENAI_API_KEY_HERE"
+```
+
+### 5. Add Protocol Templates
+The templates/ directory is structured for different guideline types. Populate templates/ich_templates/ich_template_v1.md with a basic ICH-compliant markdown protocol structure.
+
+### 6. Run the Application
+Once all setup steps are complete, run the Streamlit application from the root directory of your project:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+
+#### Usage
+1. Generate Protocol Draft: Use the "Protocol Generation" section to input basic study parameters and generate a new protocol draft using an LLM.
+2. Upload Existing Protocol: Upload a protocol file (PDF, TXT, or MD) to be reviewed. The system will extract its text content.
+3. Start Multi-Agent Review: Once a protocol is displayed, click "Start Multi-Agent Review". The specialized AI agents will then process the protocol, provide their feedback, and the system will present an amendment risk assessment, recommendations, and an overall score.
